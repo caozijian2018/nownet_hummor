@@ -34,7 +34,7 @@
                                 class="hover_cate_back cataback"
                                 :class="{hover_cate_back_select:selectOrder=='to_cate'}"
                             ></div>
-                            <span class="pcs">{{$t('words.categories')}}</span>
+                            <span class="pcs">{{$t('words.home')}}</span>
                         </div>
                         <div
                             class="cate_div"
@@ -64,15 +64,18 @@
                         </div>
                     </div>
                 </div>
-                <div class="head_icon display_flex">
+                <div class="head_icon display_flex" @click.stop="showWichbox('option')">
                     <!-- <i :class="{selectback_ground:showWhich=='search'}" @click.stop="showWichbox('search')" class="iconfont navigator icon-fangdajing"></i> -->
-                    <div class="option_animate display_flex flex_align_center" :class="{selectback_ground:showWhich=='option',selected_op:showWhich=='option'}" @click.stop="showWichbox('option')">
+                    <i  class="iconfont icon-chacha" style="font-size:22px" v-if="showWhich=='option'"></i>
+                    <i v-else class="iconfont icon-daohang" style="font-size:25px"></i>
+
+                    <!-- <div class="option_animate display_flex flex_align_center" :class="{selectback_ground:showWhich=='option',selected_op:showWhich=='option'}" @click.stop="showWichbox('option')">
                         <div class="display_flex line_box flex_jusify_space flex_column">
                             <div class="first"></div>
                             <div class="secend"></div>
                             <div class="last"></div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -229,7 +232,7 @@ export default {
         toCate() {
             this.showWhich = "";
             this.$router.push({
-                name: "index-index-categaray"
+                path: "/"
             });
         },
         orderselect(ordering) {

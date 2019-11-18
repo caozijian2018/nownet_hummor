@@ -1,12 +1,12 @@
 version: "3"
 services:
-  taichi:
+  nownet_hummor:
     image: 'caocaocao/web'
-    container_name: taichi
+    container_name: nownet_hummor_web
     working_dir: /app/
     volumes:
       - "./dist:/app/dist"
-      - ./:/app/taichi
+      - ./:/app/nownet_hummor
       - ./deploy_auto.sh:/app/deploy_auto.sh
     command:
       - /bin/sh
@@ -20,11 +20,11 @@ services:
       - WEB_BRANCH=dev
       - WEB_PRODORDEV=dev
       - HOST=0.0.0.0
-      - WEB_PROJECT_NAME=taichi
+      - WEB_PROJECT_NAME=nownet_hummor
       - WEB_NEED_NPM_REGISTRY=true
       # - WEB_NODE_MODULES_IS_CHANGE=true
     ports:
-      - "3014:3014"
+      - "3020:3020"
 
   # tracker-front-depend:
   #   image: 'caocaocao/tracker_depend'

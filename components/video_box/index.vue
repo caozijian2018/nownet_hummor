@@ -25,7 +25,9 @@
 </template>
 
 <script>
+ 
     export default {
+        
         methods:{
             watchMovie(){
                 this.$router.push({path:`/home/${this.item.id}`});

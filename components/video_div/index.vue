@@ -1,27 +1,23 @@
 <template>
-    <div @click="goWatchMp4(item.id)" class="width_100 video_box margin_bottom_1">
+    <div @click="goWatchMp4(item.id)" class="video_box">
         <div class="hover_img position_relative text_center margin_bottom-1 overflow_hidden" :style="{height:boxheight+'px'}">
-            <i class="pcs iconfont icon-weibiaoti1 white play pc_none"></i>
+            <i class="pcs iconfont icon-ai239 white play pc_none"></i>
             <div class="width_100 height_100 img_box">
-                <img @load="loadImg($event)" :src="prefix + item.cover" class="pcs video_img_box" style="" alt="">
+                <img src="../../static/img/ld.gif" class="pcs video_img_box" v-if="!item.showloading" alt="">
+                <img @load="loadImg($event)" v-show="item.showloading" :src="prefix + item.cover" class="pcs video_img_box" style="" alt="">
             </div>
-            <div class="hoverdiv mp4hover">
+            <!-- <div class="hoverdiv mp4hover">
                 <div class="white pcs">
                     WATCH IT <i class="iconfont icon-xiangyou"></i>
                 </div>
-            </div>
-            <!-- <div class="video_box_icon white">
-                <i class="iconfont icon-bofang"></i> {{item.video_duration || 0 | secendToTime}}
             </div> -->
-        </div>
-        <div class="padding_1 font back_white">
-            <div class="title_text">
-                {{item.title}}
-            </div>
-            <div class="box_footer display_flex flex_align_center  margin_top_10">
-                <i class="iconfont icon-shijian1"></i> {{item.created | yearMonthDay}}
-                <i class="padding_left_1 iconfont icon-chakanguo" style="font-size:22px"></i> {{(item.show_cnt | parseInt(Math.random()*100)) + 1068}}
-                <i class="padding_left_1 iconfont icon-star_full"></i> {{item.id}}
+            <div class="hoverdiv hover_box transition_4s">
+                <div class="white width_100 text_top position_absolute">
+                    <div class="font_size_6 text_center">{{item.title|first10}}</div>
+                    <div class="box_button margin_top_20">
+                        Play It
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -29,7 +25,11 @@
 
 <script>
     import getCurrentPrefix from "../../util/get_current_prefix"
+    import appButton from "../button"
     export default {
+        components:{
+            appButton
+        },
         props: {
             item: {
                 type: Object
@@ -44,6 +44,9 @@
         },
         mounted() {
             this.setWidthandHeight();
+            if(!this.$store.state.right_box_height){
+                this.setRightBoxHeight();
+            }
         },
         filters: {
             yearMonthDay(val) {
@@ -62,6 +65,15 @@
             }
         },
         methods: {
+            setRightBoxHeight(){
+                this.$nextTick(()=>{
+                    if(document.querySelector(".right_div_box")){
+                        var height = getComputedStyle(document.querySelector(".right_div_box")).height;
+                        this.$store.state.right_box_height = height;
+                    }
+                    
+                })
+            },
             goWatchMp4(id) {
                 this.$router.push({
                     path: "/" + id
@@ -84,8 +96,10 @@
                 } catch (error) {
                     boxwidth = parseFloat(this.$jquery(this.$jquery('.video_box')[this.$jquery(".video_box").length - 1]).css('width'));
                 }
+
                 this.boxwidth = boxwidth; // 
                 var boxheight = this.boxwidth / 1.2;
+                console.log(boxheight+"xxxx")
                 this.boxheight = boxheight
             }
         }
@@ -94,7 +108,13 @@
 
 <style lang='less'>
     @import "../../assets/css/current_theme";
+  
     .video_box {
+        .text_top{
+            left: 50%;
+            top: 50px;
+			transform: translate(-50%, -50%);
+        }
         .title_text {
             font-size: 19px;
         }
@@ -134,7 +154,11 @@
         .box_footer {
             color: @font_gray;
         }
+        .hover_box{
+            transform: translateY(85%);
+        }
         @media screen and (min-width:800px) {
+           
             .pc_none {
                 display: none;
             }
@@ -142,6 +166,17 @@
                 box-shadow: 5px 5px 10px rgba(30, 30, 30, 1.0);
             }
             .hover_img {
+                &:hover{
+                    .text_top{
+                        animation-name:duang;
+                        animation-fill-mode:forwards;
+				        animation-duration:.6s;
+                    }
+
+                }
+                &:hover .hover_box{
+                    transform: translateY(0);
+                }
                 &:hover .mp4hover {
                     display: block;
                     z-index: 10002;

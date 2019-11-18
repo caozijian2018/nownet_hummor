@@ -19,10 +19,12 @@ module.exports = {
 
  dev: (process.env.NODE_ENV !== 'production'),
  env: {
-    baseUrl: process.env.BASE_URL || 'http://localhost:3014',
+    baseUrl: process.env.BASE_URL || 'http://localhost:3020',
     API_URL: API_URL,
-    WTAT_THIS_APP:"healthy-life-now",
-    WTAT_THIS_FILE_PREFIX: "http://assets.healthy-life-now.net/",
+    WTAT_THIS_APP:"niceenjoy",
+    WTAT_THIS_APP_TYPE:"Funny",
+
+    WTAT_THIS_FILE_PREFIX: "http://assets.niceenjoy.com/",
 
   },
   head: {
@@ -49,7 +51,7 @@ module.exports = {
  ],
  proxy: {
   '/backend': {
-    target: 'http://healthy-life-now.net',
+    target: 'http://niceenjoy.com',
     pathRewrite: {
         '^/backend': '/backend'
     }

@@ -4,5 +4,6 @@ export default {
   locale: "en",
   platform_no_phone: false,
   search_word: "",
-  cate_page: 1
+  cate_page: 1,
+  right_box_height:""
 }

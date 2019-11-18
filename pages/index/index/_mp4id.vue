@@ -15,6 +15,8 @@
     import bus from "../../../util/bus"
     import getCurrentPrefix from "../../../util/get_current_prefix"
     import videoFooter from "../../../components/footer";
+
+
     export default {
         components: {
             mp4,
@@ -46,7 +48,9 @@
             },
             haslogin() {
                 if (!localStorage.video_token) {
-                    this.showLoginOrHide(true)
+                    this.$nextTick(()=>{
+                        this.showLoginOrHide(true)
+                    })
                 } else {
                     this.getMp4src()
                 }
