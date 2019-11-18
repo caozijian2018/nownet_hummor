@@ -40,7 +40,7 @@
                       <div class="font_size_6 text_center">
                       {{ cate_obj.arr[0].title }}
                       </div>
-                      <div class="box_button margin_top_20">Play It</div>
+                      <div class="box_button margin_top_20">Watch It</div>
                   </div>
                 </div>
             </div>
@@ -239,7 +239,7 @@ export default {
       transform: translateY(0);
     }
     .hover_box {
-      transform: translateY(92%);
+      transform: translateY(90%);
     }
     // background-image: url("http://assets.niceenjoy.com/DCB/Funny/WHO LET THE DAWGS OUT/cover/5c300ee0bf3411e98b720ab313eb377e.png");
     background-size: 200%;

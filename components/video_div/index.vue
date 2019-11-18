@@ -11,7 +11,7 @@
                     WATCH IT <i class="iconfont icon-xiangyou"></i>
                 </div>
             </div> -->
-            <div class="hoverdiv hover_box transition_4s">
+            <div class="hoverdiv hover_box transilatey80 transition_4s">
                 <div class="white width_100 text_top position_absolute">
                     <div class="font_size_6 text_center">{{item.title|first10}}</div>
                     <div class="box_button margin_top_20">
@@ -154,9 +154,8 @@
         .box_footer {
             color: @font_gray;
         }
-        .hover_box{
-            transform: translateY(85%);
-        }
+        
+        
         @media screen and (min-width:800px) {
            
             .pc_none {

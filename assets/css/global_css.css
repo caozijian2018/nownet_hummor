@@ -48,15 +48,23 @@ html{
 .padding_left_1{
     padding-left:1rem;
 }
+.transilatey80{
+    transform: translateY(80%);
+}
+@media screen and (max-width:1440px) {
+    .transilatey80{
+        transform: translateY(77%);
+    }
+}
 .box_button{
-    height: 40px;
+    height: 35px;
     font-size: 20px;
-    line-height: 40px;
+    line-height: 35px;
     padding: 0 20px;
     color: #fff;
     text-align: center;
     background: skyblue;
-    border-radius: 20px; 
+    border-radius: 5px; 
     display: inline-block;   
 }
 .padding_left_20{
@@ -398,8 +406,12 @@ html{
     color: #fff;
     text-align: center;
     background: #e4343c;
-    border-radius: 15px; 
+    border-radius: 15px;
+    transition-duration: .2s; 
     display: inline-block;
+}
+.watch_more:hover{
+    background: rgb(252, 4, 16);
 }
 @keyframes duang {
     from {
@@ -503,12 +515,17 @@ html{
 .el-message.msg{
     min-width:340px;
 }
+.phone_show{
+    display: none;
+}
 /* 小于800 的尺寸 */
 @media screen and (max-width:800px){
     .el-message{
         width:90%;
     }
-    
+    .phone_show{
+        display: block;
+    }
     .phone_text_center{
         text-align: center;
     }

@@ -3,28 +3,14 @@
         <div class="head_box">
             <div class="display_flex head_innerbox flex_jusify_space">
                 <div class="display_flex flex_align_center">
-                    <!-- <img
-                        src="../../static/img/people.png"
-                        @click="goHome"
-                        class="cursor head_img padding_left_1"
-                        alt
-                    /> -->
                     <img
                         src="../../static/img/logo.png"
                         @click="goHome"
-                        class="cursor head_img"
+                        class="cursor head_img padding_left_20"
                         alt
                     />
                     <div class="display_flex flex_align_center classfication_pc">
-                        <!-- <div v-if="false" @mouseover="orderselect(item.id)" @mouseleave="selectOrder=''" v-for="item in arr" @click="getList(item.id,'pc')" :key="item.id">
-                                                    <div class="hover_cate_back" :class="{hover_cate_back_select:clickSelect==item.id||selectOrder==item.id}">
-                                                    </div>
-                                                    <span class="pcs">
-                                                        {{item.name}}
-                                                    </span>
-                        </div>-->
                         <div
-                            v-if="op!='ib'"
                             class="cate_div"
                             @mouseover="orderselect('to_cate')"
                             @click="toCate()"
@@ -64,40 +50,23 @@
                         </div>
                     </div>
                 </div>
-                <div class="head_icon display_flex" @click.stop="showWichbox('option')">
+                <div class="head_icon display_flex phone_show" @click.stop="showWichbox('option')">
                     <!-- <i :class="{selectback_ground:showWhich=='search'}" @click.stop="showWichbox('search')" class="iconfont navigator icon-fangdajing"></i> -->
-                    <i  class="iconfont icon-chacha" style="font-size:22px" v-if="showWhich=='option'"></i>
+                    <i
+                        class="iconfont icon-chacha"
+                        style="font-size:22px"
+                        v-if="showWhich=='option'"
+                    ></i>
                     <i v-else class="iconfont icon-daohang" style="font-size:25px"></i>
-
-                    <!-- <div class="option_animate display_flex flex_align_center" :class="{selectback_ground:showWhich=='option',selected_op:showWhich=='option'}" @click.stop="showWichbox('option')">
-                        <div class="display_flex line_box flex_jusify_space flex_column">
-                            <div class="first"></div>
-                            <div class="secend"></div>
-                            <div class="last"></div>
-                        </div>
-                    </div> -->
                 </div>
             </div>
         </div>
         <div class="option_box" :class="{select:showWhich=='option'}">
             <div class="width_90 margin_auto">
-                <!-- <div class="tag  singole_tag white text_center" @click="getList(item.id,'ph')" v-for="item in arr" :key="item.id">
-                            {{item.name}}
-                </div>-->
-                <!-- <video-button :button-text="$t('words.categories')" @click.native="toCate()" class></video-button> -->
                 <video-button
-                    :button-text="$t('words.benefits_of_tai_chi')"
-                    @click.native="Introduction('/intro?type=tai_chi')"
-                    class="margin_top_1"
-                ></video-button>
-                <video-button
-                    :button-text="$t('words.benefits_of_yoga')"
-                    @click.native="Introduction('/intro?type=yoga')"
-                    class="margin_top_1"
-                ></video-button>
-                <video-button
-                    :button-text="$t('words.benefits_of_fitness')"
-                    @click.native="Introduction('/intro?type=fitness')"
+                    v-if="show_unlogin_button"
+                    :button-text="$t('words.unlogin')"
+                    @click.native="unLogin()"
                     class="margin_top_1"
                 ></video-button>
                 <video-button
@@ -106,19 +75,13 @@
                     @click.native="showLogin()"
                     class="margin_top_1"
                 ></video-button>
-                <video-button
-                    v-if="show_unlogin_button"
-                    :button-text="$t('words.unlogin')"
-                    @click.native="unLogin()"
-                    class="margin_top_1"
-                ></video-button>
             </div>
         </div>
         <div class="search_box" :class="{select:showWhich=='search'}">
             <div class="width_90 margin_auto">
                 <el-input @keyup.native.13="Search" class="video_input" v-model="search_word"></el-input>
                 <video-button
-                    :button-text=" $t('words.search')"
+                    :button-text="$t('words.search')"
                     @click.native="Search"
                     class="margin_top_1"
                 ></video-button>
@@ -174,11 +137,11 @@ export default {
         this.watchBus();
     },
     methods: {
-        Introduction(url){
+        Introduction(url) {
             this.showWhich = "";
             this.$router.push({
                 path: url
-            })
+            });
         },
         watchBus() {
             bus.$on("loginSuccess", () => {
@@ -187,21 +150,17 @@ export default {
         },
         unLogin() {
             unlogin();
+            this.showWhich = "";
             this.diffrentOp();
             this.$msg(this.$t("words.unlogin_success"));
         },
         diffrentOp() {
             switch (this.op) {
-                case "tw":
-                    (() => {
-                        this.show_login_button = !localStorage.video_token;
-                        this.show_unlogin_button = localStorage.video_token;
-                    })();
-                    break;
                 default:
                     (() => {
-                        this.show_login_button = false;
-                        this.show_unlogin_button = false;
+                        var show_unlogin = Boolean(localStorage.video_token);
+                        this.show_login_button = !show_unlogin;
+                        this.show_unlogin_button = show_unlogin;
                     })();
                     break;
             }
@@ -227,6 +186,7 @@ export default {
             });
         },
         showLogin() {
+            this.showWhich = "";
             this.$emit("showLogin");
         },
         toCate() {

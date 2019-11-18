@@ -16,7 +16,8 @@
                 </div>
                 <video-button class="margin_top_20 width_100" :button-text="$t('words.next_step')" @click.native="regist2login"></video-button>
                 <div class="white margin_top_20 text_center">
-                    {{$t("words.not_register_yet")}} ? <a :href="getLpUrl()" class="white underline cursor">{{$t("words.click_here")}}</a>
+                    {{$t("words.not_register_yet")}} ? 
+                    <!-- <a class="white underline cursor">{{$t("words.click_here")}}</a> -->
                 </div>
             </div>
         </div>
@@ -55,8 +56,7 @@
                         {item: "funnyVDO"},
                         {price: 200},
                         {pay_way: 1},
-                    ], //（ServiceName|Item|PayWay）
-                    // CallBackURL: 'https://fitness-lib.com/backend/api/v1/twmk/transaction',
+                    ],
                     CallBackURL: 'https://humorboom.com/backend/twmk/transaction',
                     TimeStamp: this.formatTime()
                 },
@@ -81,20 +81,7 @@
                 return y + add0(m) + add0(d) + add0(h) + add0(i) + add0(s) + '000'
             },
             getLpUrl() {
-                var url;
-                switch (this.platform) {
-                    case "tw":
-                        (() => {
-                            url = 'http://static.humorboom.com/tw/tw1/x-lp-funny.html?temp='+this.temp2;
-                        })();
-                        break;
-                    default:
-                        (() => {
-                            url = 'http://static.humorboom.com/' + this.platform + '/lp.html';
-                        })();
-                        break;
-                }
-                return url;
+                return ""
             },
             close() {
                 if (this.login_state == "change_password") {
@@ -104,53 +91,19 @@
             },
             regist2login() {
                 bus.$emit('showLoading', true);
-                if (this.login_state == "change_password") {
-                    if (this.password == "123456") {
-                        this.$msg(this.$t('words.not_123456'), 'error');
-                        bus.$emit('showLoading', false);
-                        return;
-                    }
-                    if (this.password != this.confirm_password) {
-                        this.$msg(this.$t('words.password_not_equally'), 'error');
-                        bus.$emit('showLoading', false);
-                        return;
-                    }
-                }
-                var data = this.login_state == 　"change_password" ? {
-                    old_password: '123456',
-                    new_password: this.password
-                } : {
+                var data = {
                     username: this.phone,
-                    password: this.password
+                    password: '123456'
                 }
-                this.$http(this.login_state === 'change_password' ? 'user/1' : 'login', this.login_state === 'change_password' ? 'patch' : "post", data).then(res => {
-                    if (this.login_state == "change_password") {
-                        this.login_state = "login";
-                        this.regist2login();
-                    } else {
-                        this.saveToken(res.token, this.phone);
-                        if (this.password == '123456') {
-                            this.password = "";
-                            this.login_state = "change_password"
-                        } else {
-                            this.$emit('close');
-                            this.$msg(this.$t('words.login_success'));
-                            bus.$emit("loginSuccess");
-                            localStorage.has_change_password = 1;
-                        }
-                    }
+                this.$http('login', "post", data).then(res => {
+                    this.saveToken(res.token, this.phone);
+                    this.$emit('close');
+                    this.$msg(this.$t('words.login_success'));
+                    bus.$emit("loginSuccess");
                     bus.$emit('showLoading', false);
-                }).catch(res => {
-                    if (this.password == "123456") {
-                        this.password = "";
-                        this.login_state = 'input_password';
-                    } else {
-                        if(this.login_state == "change_password"){
-                            this.$msg(this.$t('words.changepassword_error'), 'error')
-                        }else{
-                            this.$msg(this.$t('words.username_or_password_error'), 'error')
-                        }
-                    }
+                }).catch(res=>{
+                    this.$msg("login error",'error')
+                    this.$emit('close');
                     bus.$emit('showLoading', false);
                 })
             },
