@@ -28,7 +28,7 @@ module.exports = {
 
   },
   head: {
-    title: 'healthy-life-now',
+    title: 'ketchupbox',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
