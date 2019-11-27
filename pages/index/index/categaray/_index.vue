@@ -11,7 +11,7 @@
     </div>
     <div>
       <!-- 中间box div -->
-      <div>
+      <div class="margin_top_10">
         <div
             class="width_80 phone_width_90 margin_auto margin_bottom_3"
             v-for="cate_obj in all_type_arr"
