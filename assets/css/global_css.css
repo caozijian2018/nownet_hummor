@@ -523,6 +523,9 @@ html{
 }
 /* 小于800 的尺寸 */
 @media screen and (max-width:800px){
+    .phone_width_100{
+        width: 100%;
+    }
     .phone_margin_top_20{
         margin-top: 20px;
     }

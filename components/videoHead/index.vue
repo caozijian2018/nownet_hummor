@@ -44,7 +44,7 @@
                         >
                             <div
                                 class="hover_cate_back cataback"
-                                :class="{hover_cate_back_select:selectOrder=='login'}"
+                                
                             ></div>
                             <span class="pcs">{{$t('words.unlogin')}}</span>
                         </div>

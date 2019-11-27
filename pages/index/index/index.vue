@@ -16,11 +16,12 @@
         srcset=""
       />
     </div> -->
+    <div class="width_80 margin_auto phone_width_100">
+      <video-banner
+        :current-banner="current_banner"
+      ></video-banner>
+    </div>
 
-    <!-- <video-banner
-      :current-banner="current_banner"
-      :style="{ marginTop: op == 'ib' ? '50px' : '0' }"
-    ></video-banner> -->
     <only-infobip-show></only-infobip-show>
     <!-- <div v-else>
       <category-box @ordering="getOrdering"></category-box>
