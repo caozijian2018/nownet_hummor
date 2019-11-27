@@ -17,11 +17,11 @@
             v-for="cate_obj in all_type_arr"
             :key="cate_obj.id"
         >
-            <div @click="toAll(cate_obj.original_name)" class="display_flex media_phone_block phone_text_center flex_jusify_space margin_bottom_2">
-              <div class="font_size_21 media_phone_margin_top_10">
+            <div @click="toAll(cate_obj.original_name)" class="display_flex flex_align_center phone_text_center flex_jusify_space margin_bottom_2">
+              <div class="font_size_21 ">
                   {{ cate_obj.name }}
               </div>
-              <div class="watch_more cursor media_screen_none" >
+              <div class="watch_more cursor" >
                   {{ $t("words.more") }}
                   <i class="iconfont icon-xiangyou"></i>
               </div>
@@ -44,10 +44,10 @@
                   </div>
                 </div>
             </div>
-            <div class="display_flex media_phone_block wrop flex_1 flex_jusify_space right_div_box" v-if="cate_obj.arr">
+            <div class="display_flex  wrop flex_1 flex_jusify_space right_div_box" v-if="cate_obj.arr">
                 <video-div
-                class="width_24 phone_margin_bottom_10px media_phone_margin_auto phone_width_95 "
-                v-for="(item, index) in cate_obj.arr.slice(1)"
+                class="width_24 phone_margin_bottom_10px media_phone_margin_auto phone_width_47 "
+                v-for="(item, index) in $store.state.is_pc ? cate_obj.arr.slice(1) : cate_obj.arr.slice(0,4)"
                 :class="{ margin_top_10: index > 3 }"
                 :item="item"
                 :key="item.id"

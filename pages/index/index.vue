@@ -13,6 +13,7 @@
 </template>
 
 <script>
+import pcOrPhone from "../../util/get_pc_or_phone";
 import videoHead from "../../components/videoHead";
 import loginBox from "../../components/loginBox";
 import initLanguage from "../../util/init_language";
@@ -93,6 +94,8 @@ export default {
         },
         setHeight() {
             this.height_ = innerHeight + "px";
+            this.$store.state.is_pc = pcOrPhone();
+
         }
     }
 };

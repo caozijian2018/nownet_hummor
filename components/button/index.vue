@@ -25,7 +25,7 @@
         color: #fff;
         font-size: 18px;
         background: @theme_logo_color;
-        border-radius: 25px;
+        border-radius: 5px;
         &:active {
             background: mix(@theme_logo_color, #000, 80%);
         }

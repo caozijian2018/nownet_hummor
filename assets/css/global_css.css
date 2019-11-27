@@ -520,6 +520,18 @@ html{
 }
 /* 小于800 的尺寸 */
 @media screen and (max-width:800px){
+    .phone_margin_top_20{
+        margin-top: 20px;
+    }
+    .phone_width_30{
+        width: 30%;
+    }
+    .phone_width_47{
+        width: 47%;
+    }
+    .phone_none{
+        display: none;
+    }
     .el-message{
         width:90%;
     }

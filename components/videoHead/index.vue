@@ -9,8 +9,8 @@
                         class="cursor head_img padding_left_20"
                         alt
                     />
-                    <div class="display_flex flex_align_center classfication_pc">
-                        <div
+                    <div class="display_flex flex_align_center classfication_pc cursor">
+                        <!-- <div
                             class="cate_div"
                             @mouseover="orderselect('to_cate')"
                             @click="toCate()"
@@ -18,10 +18,10 @@
                         >
                             <div
                                 class="hover_cate_back cataback"
-                                :class="{hover_cate_back_select:selectOrder=='to_cate'}"
+                                 
                             ></div>
                             <span class="pcs">{{$t('words.home')}}</span>
-                        </div>
+                        </div> -->
                         <div
                             class="cate_div"
                             v-if="show_login_button"
@@ -31,7 +31,7 @@
                         >
                             <div
                                 class="hover_cate_back cataback"
-                                :class="{hover_cate_back_select:selectOrder=='login'}"
+                                
                             ></div>
                             <span class="pcs">{{$t('words.login')}}</span>
                         </div>
@@ -239,6 +239,8 @@ export default {
     transition-property: height;
     .head_box {
         .cate_div {
+            height: 30px;
+            border-radius: 15px;
             background: @head_orange;
         }
         .classfication_pc {
@@ -268,6 +270,7 @@ export default {
             & .line_box > div {
                 transition-duration: 0.4s;
             }
+            // rgba(102, 102, 102, 1.0)
             color: #fff;
             .selected_op {
                 .first {
@@ -301,7 +304,7 @@ export default {
             }
         }
         .head_img {
-            height: 50px;
+            height: 60px;
         }
         .navigator {
             font-size: 24px;
@@ -394,7 +397,7 @@ export default {
                     width: 200px;
                     text-align: center;
                     font-size: 17px;
-                    height: 50px;
+                    height: 30px;
                     // line-height:50px;
                     background: @head_option_back;
                 }

@@ -1,13 +1,13 @@
 <template>
     <div v-loading.fullscreen.lock="fullscreenLoading">
-        <div class="width_80 phone_width_95 margin_top_10 margin_auto display_flex media_phone_block wrop flex_jusify_space">
-            <video-div
-                class="width_24 margin_bottom_1 phone_width_90 media_phone_margin_auto phone_margin_bottom_10px"
-                v-for="item in list"
+        <div class="display_flex margin_top_10 wrop flex_1 flex_jusify_space right_div_box" >
+                <video-div
+                class="width_24 phone_margin_bottom_10px media_phone_margin_auto phone_width_47 "
+                v-for="(item) in list"
                 :item="item"
                 :key="item.id"
-            ></video-div>
-        </div>
+                ></video-div>
+            </div>
     </div>
 </template>
 

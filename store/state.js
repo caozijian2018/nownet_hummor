@@ -5,5 +5,6 @@ export default {
   platform_no_phone: false,
   search_word: "",
   cate_page: 1,
-  right_box_height:""
+  right_box_height:"",
+  is_pc: true,
 }
