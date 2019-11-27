@@ -19,12 +19,12 @@ module.exports = {
 
  dev: (process.env.NODE_ENV !== 'production'),
  env: {
-    baseUrl: process.env.BASE_URL || 'http://localhost:3025',
+    baseUrl: process.env.BASE_URL || 'http://localhost:3028',
     API_URL: API_URL,
-    WTAT_THIS_APP:"niceenjoy",
-    WTAT_THIS_APP_TYPE:"Funny",
+    WTAT_THIS_APP:"ketchupbox",
+    WTAT_THIS_APP_TYPE:"ketchupbox",
 
-    WTAT_THIS_FILE_PREFIX: "http://assets.niceenjoy.com/",
+    WTAT_THIS_FILE_PREFIX: "http://assets.ketchupbox.com/",
 
   },
   head: {
@@ -51,7 +51,7 @@ module.exports = {
  ],
  proxy: {
   '/backend': {
-    target: 'http://niceenjoy.com',
+    target: 'http://ketchupbox.com',
     pathRewrite: {
         '^/backend': '/backend'
     }
