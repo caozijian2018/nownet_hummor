@@ -1,8 +1,8 @@
 <template>
     <div v-loading.fullscreen.lock="fullscreenLoading">
-        <div class="display_flex margin_top_10 wrop flex_1 flex_jusify_space right_div_box" >
+        <div class="display_flex width_98 margin_auto margin_top_10 wrop flex_1 flex_jusify_space right_div_box" >
                 <video-div
-                class="width_24 phone_margin_bottom_10px media_phone_margin_auto phone_width_47 "
+                class="width_24 margin_bottom_15 phone_margin_bottom_10px media_phone_margin_auto phone_width_47 "
                 v-for="(item) in list"
                 :item="item"
                 :key="item.id"

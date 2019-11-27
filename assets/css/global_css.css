@@ -518,6 +518,9 @@ html{
 .phone_show{
     display: none;
 }
+.width_98{
+    width: 98%;
+}
 /* 小于800 的尺寸 */
 @media screen and (max-width:800px){
     .phone_margin_top_20{
