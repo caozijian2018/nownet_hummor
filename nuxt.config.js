@@ -24,7 +24,7 @@ module.exports = {
     WTAT_THIS_APP:"ketchupbox",
     WTAT_THIS_APP_TYPE:"ketchupbox",
 
-    WTAT_THIS_FILE_PREFIX: "http://assets.ketchupbox.com/",
+    WTAT_THIS_FILE_PREFIX: "http://assets.niceenjoy.com/",
 
   },
   head: {
