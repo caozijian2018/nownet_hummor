@@ -1,24 +1,11 @@
 <template>
     <div class="fixd">
         <div class="width_40 pcs loginbox">
-            <i class="iconfont icon-chacha white cancelLogin position_absolute cursor" @click="close"></i>
+            <i class="white cancelLogin position_absolute cursor" @click="close" style="font-size: 30px"> &times;</i>
             <div class="width_65 margin_auto">
                 <div class="display_block margin_bottom_1 font_size_20 text_center white"> {{ login_state == "login" ? $t("words.login") : login_state=="input_password" ? $t('words.input_password') : $t('words.change_password')}}</div>
-                <div class="" v-if="login_state=='login'">
-                    <el-input :clearable="true" v-model="phone" class="login width_100" :placeholder="$t('words.phone_number')"></el-input>
-                </div>
-                <div v-else-if="login_state=='change_password'">
-                    <el-input type="password" :clearable="true" v-model="password" class="login width_100" :placeholder="$t('words.password')"></el-input>
-                    <el-input type="password" :clearable="true" v-model="confirm_password" class="login margin_top_10 width_100" :placeholder="$t('words.confirm_password')"></el-input>
-                </div>
-                <div v-else-if="login_state=='input_password'">
-                    <el-input  type="password" :clearable="true" v-model="password" class="login width_100" :placeholder="$t('words.password')"></el-input>
-                </div>
+                <el-input :clearable="true" v-model="phone" class="login width_100" :placeholder="$t('words.phone_number')"></el-input>
                 <video-button class="margin_top_20 width_100" :button-text="$t('words.next_step')" @click.native="regist2login"></video-button>
-                <div class="white margin_top_20 text_center">
-                    {{$t("words.not_register_yet")}} ? 
-                    <!-- <a class="white underline cursor">{{$t("words.click_here")}}</a> -->
-                </div>
             </div>
         </div>
     </div>
@@ -141,11 +128,11 @@
                 text-decoration: underline;
             }
             .login input {
-                background: @body_color;
+                background: #fff;
                 border: 1px solid #464646;
-                color: #fff;
+                color: #464646;
             }
-            background:@head_bottom_color;
+            background: #999999;
             border-radius:10px;
             padding:40px 0 40px;
         }

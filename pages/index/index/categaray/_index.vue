@@ -1,6 +1,6 @@
 <template>
   <div class="taglist_box" v-loading.fullscreen.lock="fullscreenLoading">
-    <div class="full_screen black" style="background:rgba(41, 216, 148, 1.0)" v-if="!is_mounted">
+    <div class="full_screen black" style="background:rgba(41, 216, 148, 1.0);" v-if="!is_mounted">
       <img
         src="../../../../static/img/loading.gif"
         class="position_absolute pcs"
