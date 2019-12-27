@@ -21,14 +21,13 @@ module.exports = {
  env: {
     baseUrl: process.env.BASE_URL || 'http://localhost:3025',
     API_URL: API_URL,
-    WTAT_THIS_APP:"ketchupbox",
-    WTAT_THIS_APP_TYPE:"ketchupbox",
-
+    WTAT_THIS_APP:"intelligentfunvdo",
+    WTAT_THIS_APP_TYPE:"intelligentfunvdo",
     WTAT_THIS_FILE_PREFIX: "http://assets.niceenjoy.com/",
 
   },
   head: {
-    title: 'ketchupbox',
+    title: 'intelligentfunvdo',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -51,7 +50,7 @@ module.exports = {
  ],
  proxy: {
   '/backend': {
-    target: 'http://ketchupbox.com',
+    target: 'http://intelligentfunvdo.com',
     pathRewrite: {
         '^/backend': '/backend'
     }
