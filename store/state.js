@@ -7,4 +7,5 @@ export default {
   cate_page: 1,
   right_box_height:"",
   is_pc: true,
+  file_token: ""
 }

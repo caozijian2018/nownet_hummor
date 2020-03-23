@@ -4,7 +4,7 @@
             <i class="pcs iconfont icon-ai239 white play pc_none"></i>
             <div class="width_100 height_100 img_box">
                 <img src="../../static/img/ld.gif" class="pcs video_img_box" v-if="!item.showloading" alt="">
-                <img @load="loadImg($event)" v-show="item.showloading" :src="prefix + item.cover" class="pcs video_img_box" style="" alt="">
+                <img @load="loadImg($event)" v-show="item.showloading" :src="prefix + item.cover+'?AuthInfo='+$store.state.file_token" class="pcs video_img_box" style="" alt="">
             </div>
             <!-- <div class="hoverdiv mp4hover">
                 <div class="white pcs">
