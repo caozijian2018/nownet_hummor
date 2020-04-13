@@ -17,8 +17,8 @@
             v-for="cate_obj in all_type_arr"
             :key="cate_obj.id"
         >
-            <div @click="toAll(cate_obj.original_name)" class="display_flex flex_align_center phone_text_center flex_jusify_space margin_bottom_2">
-              <div class="font_size_21 ">
+            <div @click="toAll(cate_obj.original_name, cate_obj.name)" class="display_flex flex_align_center phone_text_center flex_jusify_space margin_bottom_2">
+              <div class="font_size_21 cursor">
                   {{ cate_obj.name }}
               </div>
               <div class="watch_more cursor" >
@@ -118,10 +118,10 @@ export default {
         path: "/"+id
       })
     },
-    toAll(key){
+    toAll(key, name){
       this.fullscreenLoading = true
       this.$router.push({
-        path: "/classification/"+key
+        path: "/classification/"+key+"?name="+name
       });
     },
     _getPage(page) {
@@ -144,7 +144,7 @@ export default {
           var item = this.arr[key];
           var obj = {};
           obj.name = item.name;
-          obj.noriginal_nameame = item.original_name;
+          // obj.noriginal_nameame = item.original_name;
           this.all_type_arr.push(item);
           this.getList(key);
         }

@@ -212,8 +212,8 @@ export default {
     initBanner() {
       console.log(33445);
       console.log(this.banner);
-      var caonima = this.banner
-      console.log(caonima)
+      var bannerr_ = this.banner
+      console.log(bannerr_)
       debugger
       var banner = get_banner(this.banner);
       console.log(banner);

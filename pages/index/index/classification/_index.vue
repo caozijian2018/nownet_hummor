@@ -1,8 +1,11 @@
 <template>
     <div v-loading.fullscreen.lock="fullscreenLoading">
-        <div class="display_flex width_98 margin_auto margin_top_10 wrop flex_1 flex_jusify_space right_div_box" >
+        <div class="display_flex font_size_20 cursor width_80 margin_auto margin_top_10">
+           <span onclick="javascript:history.back()">{{$t('words.home')}}</span>  &nbsp;&nbsp;/&nbsp;    {{tag_name}}
+        </div>
+        <div class="display_flex width_80 margin_auto margin_top_10 wrop flex_1 phone_flex_jusify_space right_div_box" >
                 <video-div
-                class="width_24 margin_bottom_15 phone_margin_bottom_10px media_phone_margin_auto phone_width_47 "
+                class="width_24 cates_divs pc_margin_left_right_12p margin_bottom_15 phone_margin_bottom_10px media_phone_margin_auto phone_width_47 "
                 v-for="(item) in list"
                 :item="item"
                 :key="item.id"
@@ -32,6 +35,7 @@ export default {
             tag: "",
             fullscreenLoading: true,
             list: [],
+            tag_name: this.$route.query.name
         }
     },
     methods: {
@@ -57,4 +61,12 @@ export default {
     }
 };
 </script>
-<style lang="less"></style>
+<style lang="less">
+.cates_divs{
+    @media screen and (max-width: 1440px){
+        .transilatey80 {
+            transform: translateY(82%);
+        }
+    }
+}
+</style>

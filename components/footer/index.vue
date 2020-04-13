@@ -1,5 +1,8 @@
 <template>
     <div class="describeBox text_center font_size_15">
+        <div class="width_80 margin_auto">
+            Ketchup Box is a premium funny video subscription video portal. You can enjoy abundant latest funny videos of different categories. No matter when and where, regardless of gender, young and old, as long as you subscribe to our service, you can enjoy happy funny videos. Hope Ketchup Box will bring fun and beauty to you. Come and enjoy it!
+        </div>
         <!-- <a :href="'http://humorboom.com/?op='+platform" class="white">{{$t('words.home')}}</a>
         <a class="white" :href="'http://static.humorboom.com/'+platform+'/terms.html'">-{{$t('words.terms')}}</a>
         <a href="#" class="white" @click="cancelSub" v-if="show_cancel"> - {{$t('words.cancel')}}</a> -->

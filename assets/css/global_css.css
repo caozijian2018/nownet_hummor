@@ -167,6 +167,9 @@ html{
 .width_24{
     width:24%;
 }
+.width_22{
+    width:22%;
+}
 .width_23{
     width:23%;
 }
@@ -405,13 +408,17 @@ html{
     padding: 0 20px;
     color: #fff;
     text-align: center;
-    background: #e4343c;
+    /* background: #e4343c; */
+    background: rgba(147, 249, 204, 1.0);
     border-radius: 15px;
     transition-duration: .2s; 
     display: inline-block;
 }
 .watch_more:hover{
-    background: rgb(252, 4, 16);
+    background: rgba(137, 239, 194, 1.0);
+   /* background: rgba(168, 246, 211, 1.0); */
+    /* background: rgb(252, 4, 16); */
+    
 }
 @keyframes duang {
     from {
@@ -523,6 +530,9 @@ html{
 }
 /* 小于800 的尺寸 */
 @media screen and (max-width:800px){
+    .phone_flex_jusify_space{
+        justify-content: space-between;
+    }
     .phone_width_100{
         width: 100%;
     }
@@ -610,6 +620,10 @@ html{
 }
 
 @media screen and (min-width: 800px) {
+    .pc_margin_left_right_12p{
+        margin-left: 0.5%;
+        margin-right: 0.5%;
+    }
     .pc_flex {
       margin: 20px auto 0;
       display: flex;
