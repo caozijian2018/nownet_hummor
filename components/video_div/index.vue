@@ -55,13 +55,10 @@
         filters: {
             uppercaseFirstWordsEn(v){
                 if(getLang()=='en'){
-                    // return v
                     var lower_text = v.toLowerCase()
                     var arr = lower_text.split(" ")
                     var str = "";
                     for(var key in arr){
-                    //    var s =  arr[key]
-                    //    debugger
                         var word = arr[key];
                         if(word){
                             str += word[0].toUpperCase() + word.slice(1,) + " ";
