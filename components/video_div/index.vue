@@ -13,7 +13,7 @@
             </div> -->
             <div class="hoverdiv hover_box transilatey80 transition_4s">
                 <div class="white width_100 text_top position_absolute">
-                    <div class="font_size_6 ellipsis text_center " >{{ item.title }}</div>
+                    <div class="font_size_6 ellipsis text_center dx" >{{ item.title }}</div>
                     <!-- <div class="font_size_6 text_center" v-else>{{item.title|first8}}</div> -->
                     <div class="box_button margin_top_20 phone_margin_top_20">
                         Play It
@@ -109,7 +109,9 @@
 
 <style lang='less'>
     @import "../../assets/css/current_theme";
-    
+    .dx{
+        text-transform:capitalize;
+    }
     .ellipsis{
         overflow: hidden;
         text-overflow:ellipsis;

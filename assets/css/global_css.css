@@ -1,6 +1,9 @@
 body{
    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
 }
+.text_left{
+    text-align: left;
+}
 .full_screen{
     position: absolute;
     z-index:100000;
@@ -226,6 +229,9 @@ html{
 }
 .flex_2{
     flex:2
+}
+.flex_4{
+    flex:4
 }
 .flex_item_full{
     align-items:stretch;
@@ -530,6 +536,9 @@ html{
 }
 /* 小于800 的尺寸 */
 @media screen and (max-width:800px){
+    .phone_block{
+        display: block;
+    }
     .phone_flex_jusify_space{
         justify-content: space-between;
     }
