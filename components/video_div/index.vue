@@ -13,7 +13,7 @@
             </div> -->
             <div class="hoverdiv hover_box transilatey80 transition_4s">
                 <div class="white width_100 text_top position_absolute">
-                    <div class="font_size_6 ellipsis text_center dx" >{{ item.title }}</div>
+                    <div class="font_size_6 ellipsis text_center dx" >{{ item.title|uppercaseFirstWordsEn}}</div>
                     <!-- <div class="font_size_6 text_center" v-else>{{item.title|first8}}</div> -->
                     <div class="box_button margin_top_20 phone_margin_top_20">
                         Play It
@@ -27,6 +27,8 @@
 <script>
     import getCurrentPrefix from "../../util/get_current_prefix"
     import appButton from "../button"
+    import getLang from "../../util/get_lang"
+
     export default {
         components:{
             appButton
@@ -36,6 +38,7 @@
                 type: Object
             }
         },
+         
         data() {
             return {
                 boxheight: "",
@@ -50,6 +53,25 @@
             }
         },
         filters: {
+            uppercaseFirstWordsEn(v){
+                if(getLang()=='en'){
+                    // return v
+                    var lower_text = v.toLowerCase()
+                    var arr = lower_text.split(" ")
+                    var str = "";
+                    for(var key in arr){
+                    //    var s =  arr[key]
+                    //    debugger
+                        var word = arr[key];
+                        if(word){
+                            str += word[0].toUpperCase() + word.slice(1,) + " ";
+                        }
+                    }
+                    return str;
+                }else{
+                    return v
+                }
+            },
             yearMonthDay(val) {
                 try {
                     return val.split("T")[0]
@@ -110,7 +132,7 @@
 <style lang='less'>
     @import "../../assets/css/current_theme";
     .dx{
-        text-transform:capitalize;
+        // text-transform:lowercase;
     }
     .ellipsis{
         overflow: hidden;
