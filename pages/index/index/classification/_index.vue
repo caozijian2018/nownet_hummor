@@ -67,7 +67,7 @@ export default {
     }
 };
 </script>
-<style lang="less">
+<style lang="less" scoped>
 .cates_divs {
     @media screen and (max-width: 1440px) {
         .transilatey80 {

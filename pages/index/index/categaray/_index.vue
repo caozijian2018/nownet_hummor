@@ -257,7 +257,7 @@ export default {
 };
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 @grayy: rgba(82, 82, 82, 1);
 
 .taglist_box {
