@@ -1,6 +1,6 @@
 <template>
     <div v-loading.fullscreen.lock="fullscreenLoading">
-        <div class="display_flex font_size_20 cursor width_80 margin_auto margin_top_10">
+        <div class="display_flex font_size_20 cursor width_80 margin_auto margin_top_20 margin_bottom_2">
             <span onclick="javascript:history.back()">{{$t('words.home')}}</span>
             &nbsp;&nbsp;/&nbsp; {{tag_name}}
         </div>
