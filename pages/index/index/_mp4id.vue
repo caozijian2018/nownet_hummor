@@ -30,7 +30,12 @@
             }
         },
         mounted() {
-            this.haslogin();
+            var is_need_login = this.$route.query.type;
+            if(is_need_login){
+                this.getMp4src()
+            }else{
+                this.haslogin();
+            }
             this.whatchLoginSuccess();
         },
         beforeRouteLeave(to,from,next){
@@ -38,6 +43,9 @@
             next()
         },
         methods: {
+            isNeedLogin(){
+                
+            },
             whatchLoginSuccess(){
                 bus.$on("loginSuccess",()=>{
                     this.getMp4src();
