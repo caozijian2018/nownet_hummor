@@ -1,6 +1,6 @@
 <template>
     <div class="container display_flex flex_column" :style="{height:height_}">
-        <video-head @showLogin="showLogin" class :class="{height0:is_scroll_bottom}"></video-head>
+        <video-head v-if="show_header" @showLogin="showLogin" class :class="{height0:is_scroll_bottom}"></video-head>
         <div
             v-loading.fullscreen.lock="fullscreenLoading"
             class="flex_1 overflow_scroll scroll_box"
@@ -35,7 +35,8 @@ export default {
             height_: "",
             show_login: false,
             is_scroll_bottom: false,
-            fullscreenLoading: false
+            fullscreenLoading: false,
+            show_header: true
         };
     },
     mounted() {
@@ -46,9 +47,12 @@ export default {
         this.watchBusOfLogin();
         this.watchLogin();
         this.diffrentOp();
-       
+        this.setShowHeader();
     },
     methods: {
+        setShowHeader(){
+            this.show_header = this.$route.query.type != 'mt';
+        },
         diffrentOp() {
             var op = getCountry();
             switch (op) {

@@ -4,7 +4,7 @@
         <div class="font_size_15 width_90 margin_auto margin_top_10 margin_bottom_15" style="text-indent: 20px">
             {{desc}}
         </div>
-        <video-footer></video-footer>
+        <video-footer v-if="show_footer"></video-footer>
     </div>
 </template>
 <script>
@@ -26,7 +26,8 @@
             return {
                 mp4_src: '',
                 op: "",
-                desc: ""
+                desc: "",
+                show_footer: true
             }
         },
         mounted() {
@@ -37,6 +38,7 @@
                 this.haslogin();
             }
             this.whatchLoginSuccess();
+            this.show_footer = this.$route.query.type != 'mt';
         },
         beforeRouteLeave(to,from,next){
             bus.$emit('showLoginOrHide',false)
