@@ -85,7 +85,8 @@ export default {
                 this.lang = getLang();
                 this.$http("dcb/site/", "get", {
                     ordering: "-create_time",
-                    lang: this.lang
+                    lang: this.lang,
+                    capacity: 100
                 }).then(res => {
                     // this.arr = res;
                     console.log(777);

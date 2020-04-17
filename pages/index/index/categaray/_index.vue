@@ -167,7 +167,8 @@ export default {
             this.category = getCurrentApp();
             this.$http("dcb/site/", "get", {
                 ordering: "-create_time",
-                lang: this.$store.state.locale
+                lang: this.$store.state.locale,
+                capacity: 100
             }).then(res => {
                 this.select_index = this.INDEX = this.$store.state.index || 0;
                 this.arr = res.results;
